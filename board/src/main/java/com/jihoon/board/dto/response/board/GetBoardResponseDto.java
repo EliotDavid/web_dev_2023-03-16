@@ -1,6 +1,5 @@
 package com.jihoon.board.dto.response.board;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.jihoon.board.entity.BoardEntity;
@@ -14,14 +13,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostBoardResponseDto {
+public class GetBoardResponseDto {
+    
     private BoardEntity board;
-    private List<CommentEntity> commentList; // 댓글 모음
-    private List<LikyEntity> likeList; // 좋아요 모음
+    private List<CommentEntity> commentList;
+    private List<LikyEntity> likeList;
 
-    public PostBoardResponseDto(BoardEntity board) {
-        this.board = board;
-        this.commentList = new ArrayList<>();
-        this.likeList = new ArrayList<>();
-    }
 }

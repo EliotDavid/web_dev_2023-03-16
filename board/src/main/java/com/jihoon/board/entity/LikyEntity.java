@@ -2,6 +2,8 @@ package com.jihoon.board.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 import com.jihoon.board.entity.primaryKey.LikyPk;
@@ -15,11 +17,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity(name="Liky")
 @Table(name="Liky")
+@IdClass(LikyPk.class)
 public class LikyEntity {
 
-    @EmbeddedId
-    private LikyPk likyPk;
+    @Id
+    private String userEmail;
+    @Id
+    private int boardNumber;
 
-    private String userProfile; 
+    private String userProfileUrl; 
     private String userNickname;
 }

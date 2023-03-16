@@ -11,5 +11,6 @@ import com.jihoon.board.entity.BoardEntity;
 public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
     
     public List<BoardEntity> findByOrderByBoardWriteDatetimeDesc();
-
+    public BoardEntity findByBoardNumber(int boardNumber);
+    public List<BoardEntity> findByWriterEmailOrderByBoardWriteDatetimeDesc(String writerEmail);
 }

@@ -27,7 +27,9 @@ public class WebSecurityConfig {
             .csrf().disable()
             .httpBasic().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-            .authorizeRequests().antMatchers("/auth/**", "/file/**").permitAll()
+            .authorizeRequests()
+            .antMatchers("/api/board/my-list").authenticated()
+            .antMatchers("/auth/**", "/file/**").permitAll()
             .antMatchers(HttpMethod.GET, "/api/board/**").permitAll()
             .anyRequest().authenticated().and()
             .exceptionHandling().authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
